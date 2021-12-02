@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "al",
+      "request": "launch",
+      "name": "Microsoft cloud sandbox",
+      "startupObjectId": 143,
+      "startupObjectType": "Page",
+      "breakOnError": true,
+      "launchBrowser": true,
+      "enableLongRunningSqlStatements": true,
+      "enableSqlInformationDebugger": true,
+      "tenant": "4f8618b5-7004-4bce-861d-5a9c05c15ccc",
+      "schemaUpdateMode": "Synchronize",
+      "environmentType": "Sandbox",
+      "environmentName": "Sandbox-Proforma"
+    },
+    {
+      "name": "Attach to PowerShell Functions",
+      "type": "PowerShell",
+      "request": "attach",
+      "customPipeName": "AzureFunctionsPSWorker",
+      "runspaceId": 1,
+      "preLaunchTask": "func: host start"
+    },
+    {
+      "name": "Attach to .NET Functions",
+      "type": "coreclr",
+      "request": "attach",
+      "processId": "${command:azureFunctions.pickProcess}"
+    }
+  ]
+}
